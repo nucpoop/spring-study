@@ -11,4 +11,5 @@ public class IndexController {
     public ResponseEntity<String> healthCheck() {
         return ResponseEntity.ok("hello");
     }
+
 }

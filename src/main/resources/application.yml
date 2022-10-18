@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://jamjam.hopto.org/dev?autoReconnect=true
+    username: ${db.id}
+    password: ${db.pw}
+    driver-class-name: org.mariadb.jdbc.Driver
