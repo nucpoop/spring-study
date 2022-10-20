@@ -1,7 +1,7 @@
 package com.nucpoop.server.dto.request;
 
 public class WeatherRequest {
-    private final static String ServiceKey = "In700GpDhOczBBTNPW9EKqfV2XwqE5ff7638azwe2D9uetiEFgIRLsnK%2FIwzUVJc0xorUJOma6aR4bKJYRu7uQ%3D%3D";
+    private String ServiceKey;
     private int pageNo;
     private int numOfRows;
     private String dataType;
@@ -12,6 +12,7 @@ public class WeatherRequest {
 
     public WeatherRequest(int pageNo, int numOfRows, String dataType, String base_date,
         String base_time, int nx, int ny) {
+        this.ServiceKey = "In700GpDhOczBBTNPW9EKqfV2XwqE5ff7638azwe2D9uetiEFgIRLsnK%2FIwzUVJc0xorUJOma6aR4bKJYRu7uQ%3D%3D";
         this.pageNo = pageNo;
         this.numOfRows = numOfRows;
         this.dataType = dataType;
@@ -21,7 +22,7 @@ public class WeatherRequest {
         this.ny = ny;
     }
 
-    public static String getServiceKey(){
+    public String getServiceKey(){
         return ServiceKey;
     }
 
