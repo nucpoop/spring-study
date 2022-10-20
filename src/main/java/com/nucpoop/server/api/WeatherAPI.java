@@ -26,6 +26,8 @@ public class WeatherAPI {
 
     public String callAPI(WeatherRequest request, String subUrl) {
         MultiValueMap<String, String> params = MultiValueMapConverter.convert(objectMapper, request);
+        System.out.println(params);
+
         Mono<String> result = webClient.get()
             .uri(
                 uriBuilder -> uriBuilder.path(subUrl).queryParams(params).build()
@@ -33,6 +35,7 @@ public class WeatherAPI {
             .accept(MediaType.APPLICATION_JSON)
             .retrieve()
             .bodyToMono(String.class);
+
         System.out.println(result.flux().toStream().findFirst());
 
         return "";

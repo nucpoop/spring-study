@@ -1,7 +1,7 @@
 package com.nucpoop.server.dto.request;
 
 public class WeatherRequest {
-    private String ServiceKey;
+    private final String ServiceKey;
     private int pageNo;
     private int numOfRows;
     private String dataType;
