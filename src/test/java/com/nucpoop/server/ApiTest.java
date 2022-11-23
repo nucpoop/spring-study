@@ -3,6 +3,7 @@ package com.nucpoop.server;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.nucpoop.server.api.WeatherAPI;
 import com.nucpoop.server.entity.UltraShortWeather;
 import com.nucpoop.server.entity.UltraShortWeather.WeatherRequest;
@@ -25,7 +26,7 @@ public class ApiTest {
     void callApiTest() {
 
         //given
-        LocalDate localDate = LocalDate.now().minusDays(1);
+        LocalDate localDate = LocalDate.now();
         UltraShortWeather weather = new UltraShortWeather();
         weather.setRequest(new WeatherRequest(1, 1000, "JSON", localDate.format(
             DateTimeFormatter.ofPattern("yyyyMMdd")), "1200", 55, 127));
@@ -40,5 +41,7 @@ public class ApiTest {
         //then
         assertThat(result.response.header.resultCode)
             .isEqualTo("00");
+        assertThat(result.response.header.resultMsg)
+            .isEqualTo("NORMAL_SERVICE");
     }
 }
