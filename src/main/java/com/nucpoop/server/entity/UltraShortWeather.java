@@ -2,15 +2,36 @@ package com.nucpoop.server.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
+@Entity
+@Table(name = "ultra_short_weather")
 public class UltraShortWeather {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "weather_no", unique = true, nullable = false)
+    private Long id;
 
     @Transient
     private WeatherRequest request;
 
     @Transient
     private WeatherResponse response;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public void setRequest(WeatherRequest request) {
         this.request = request;
@@ -104,21 +125,25 @@ public class UltraShortWeather {
         }
     }
 
-    public static class WeatherResponse{
+    public static class WeatherResponse {
+
         public Response response;
     }
 
-    public static class Response{
+    public static class Response {
+
         public Header header;
         public Body body;
     }
 
-    public static class Header{
+    public static class Header {
+
         public String resultCode;
         public String resultMsg;
     }
 
-    public static class Body{
+    public static class Body {
+
         public String dataType;
         public Items items;
         public int pageNo;
@@ -126,11 +151,13 @@ public class UltraShortWeather {
         public int totalCount;
     }
 
-    public static class Items{
+    public static class Items {
+
         public ArrayList<Item> item;
     }
 
-    public static class Item{
+    public static class Item {
+
         public String baseData;
         public String baseTime;
         public String category;

@@ -17,10 +17,10 @@ public class SecurityConfiguration {
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authorizeRequests()
-            .antMatchers("/health-check","/test").permitAll();
-            //.anyRequest().hasRole("USER")
-            //.and()
-            //.addFilterBefore()
+            .antMatchers("/health-check", "/test").permitAll();
+        //.anyRequest().hasRole("USER")
+        //.and()
+        //.addFilterBefore()
         return http.build();
     }
 

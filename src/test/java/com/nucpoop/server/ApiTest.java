@@ -23,7 +23,7 @@ public class ApiTest {
     WeatherAPI weatherAPI;
 
     @Test
-    void callApiTest() {
+    void call_api_ultra_short() {
 
         //given
         LocalDate localDate = LocalDate.now();
@@ -39,9 +39,17 @@ public class ApiTest {
             WeatherAPI.GET_ULTRA_SHORT_CST);
 
         //then
-        assertThat(result.response.header.resultCode)
-            .isEqualTo("00");
-        assertThat(result.response.header.resultMsg)
-            .isEqualTo("NORMAL_SERVICE");
+        if (result.response.header.resultCode.equals("03")) {
+            // too early no data
+            assertThat(result.response.header.resultCode)
+                .isEqualTo("03");
+            assertThat(result.response.header.resultMsg)
+                .isEqualTo("NO_DATA");
+        } else {
+            assertThat(result.response.header.resultCode)
+                .isEqualTo("00");
+            assertThat(result.response.header.resultMsg)
+                .isEqualTo("NORMAL_SERVICE");
+        }
     }
 }
