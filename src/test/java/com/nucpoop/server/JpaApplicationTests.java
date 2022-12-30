@@ -20,7 +20,7 @@ public class JpaApplicationTests {
     WeatherExampleRepository weatherExampleRepository;
 
     @BeforeEach
-    void insertTestData() {
+    void initInsertTestData() {
         WeatherExample weatherExample = new WeatherExample();
         weatherExample.setLocation("seoul");
         weatherExampleRepository.save(weatherExample);
@@ -35,8 +35,20 @@ public class JpaApplicationTests {
     }
 
     @Test
-    void updateTest(){
+    void findByLocationTest(){
+        List<WeatherExample> results = weatherExampleRepository.findByLocation("seoul");
 
+        assertThat(results.get(0).getId()).isNotNull();
+        assertThat(results.get(0).getLocation()).isEqualTo("seoul");
+    }
+
+    @Test
+    void updateTest(){
+        List<WeatherExample> results = weatherExampleRepository.findByLocation("seoul");
+        results.get(0).setLocation("paris");
+        weatherExampleRepository.save(results.get(0));
+
+        assertThat(weatherExampleRepository.findByLocation("paris").get(0).getLocation()).isEqualTo("paris");
     }
 
 }

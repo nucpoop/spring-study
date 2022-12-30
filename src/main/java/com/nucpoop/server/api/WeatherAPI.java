@@ -10,7 +10,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient.Builder;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 import org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode;
-import reactor.core.publisher.Mono;
 
 @Component
 public class WeatherAPI {
