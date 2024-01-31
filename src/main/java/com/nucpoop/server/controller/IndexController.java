@@ -24,8 +24,5 @@ public class IndexController {
         return ResponseEntity.ok("abcd");
     }
 
-    @GetMapping("/temp")
-    public ResponseEntity<String> temp() {
-        return ResponseEntity.ok("temp");
-    }
+
 }
