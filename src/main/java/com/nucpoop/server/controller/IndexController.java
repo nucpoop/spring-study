@@ -14,6 +14,11 @@ public class IndexController {
         return ResponseEntity.ok("hello");
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> testApi(){
+        return ResponseEntity.ok("test");
+    }
+
     @GetMapping("/abcd")
     public ResponseEntity<String> abcd() {
         return ResponseEntity.ok("abcd");
