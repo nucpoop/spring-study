@@ -24,5 +24,9 @@ public class IndexController {
         return ResponseEntity.ok("abcd");
     }
 
+    @GetMapping("/bye")
+    public ResponseEntity<String> bye() {
+        return ResponseEntity.ok("bye");
+    }
 
 }
