@@ -14,4 +14,9 @@ public class IndexController {
         return ResponseEntity.ok("hello");
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> testApi(){
+        return ResponseEntity.ok("test");
+    }
+
 }
