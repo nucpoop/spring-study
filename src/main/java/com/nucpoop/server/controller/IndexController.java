@@ -10,6 +10,7 @@ public class IndexController {
     @GetMapping("/health-check")
     public ResponseEntity<String> healthCheck() {
         int i = 0;
+        String temp = "";
         return ResponseEntity.ok("hello");
     }
 
